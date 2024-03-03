@@ -4,7 +4,7 @@ local neotree = {
   name = 'neotree',
   lazy = true,
   keys = {
-    { '<leader>tf', '<cmd>Neotree reveal toggle<cr>', { desc = 'Toggle file tree', mode = 'n' } },
+    { '<leader>tf', '<cmd>Neotree reveal toggle<cr>',            { desc = 'Toggle file tree', mode = 'n' } },
     { '<leader>tg', '<cmd>Neotree source=git_status toggle<cr>', { desc = 'Toggle file tree', mode = 'n' } },
   },
   dependencies = {
@@ -44,7 +44,7 @@ local neotree = {
     vim.fn.sign_define("DiagnosticSignInfo",
       { text = " ", texthl = "DiagnosticSignInfo" })
     vim.fn.sign_define("DiagnosticSignHint",
-      { text = "󰌵", texthl = "DiagnosticSignHint" })
+      { text = "󰌵 ", texthl = "DiagnosticSignHint" })
   end,
 }
 

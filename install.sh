@@ -34,5 +34,7 @@ if [ ! -d ~/.config/nvim-lazy ]; then
   git clone https://Elijah017/nvim-lazy
 fi
 
+sudo apt install python4-venv
+
 mv nvim-lazy nvim && cd nvim
 printf "\e[0;92mInstalled Nvim"
