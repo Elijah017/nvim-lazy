@@ -22,7 +22,7 @@ zero.config = function()
 
 	require('mason').setup()
 	require('mason-lspconfig').setup({
-		ensure_installed = { 'csharp_ls@0.10.0', 'lua_ls', },
+		ensure_installed = { 'lua_ls', 'bashls', },
 		handlers = {
 			lsp_zero.default_setup,
 			lua_ls = function()
