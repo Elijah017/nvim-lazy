@@ -24,12 +24,12 @@ zero.config = function()
 	require('mason-lspconfig').setup({
 		ensure_installed = { 'lua_ls', 'bashls', },
 		handlers = {
-			lsp_zero.default_setup,
+      lsp_zero.default_setup,
 			lua_ls = function()
 				local lua_opts = lsp_zero.nvim_lua_ls()
 				require('lspconfig').lua_ls.setup(lua_opts)
 			end,
-		},
+    },
 	})
 
 	local cmp = require('cmp')
@@ -50,6 +50,8 @@ zero.config = function()
 		vim.keymap.set('n', '[d', function() vim.diagnostic.goto_prev() end, { desc = "previous warning" })
 		vim.keymap.set('n', ']d', function() vim.diagnostic.goto_next() end, { desc = "next warning" })
 	end)
+
+  lsp_zero.setup_servers({ 'lua_ls', 'bashls', })
 end
 
 return zero

@@ -21,4 +21,4 @@ vim.opt.backup = false
 vim.opt.undodir = vim.fn.stdpath('data') .. '/undodir'
 vim.opt.undofile = true
 
-vim.opt.colorcolumn = '80'
+-- vim.opt.colorcolumn = '80'

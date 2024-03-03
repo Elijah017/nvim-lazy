@@ -1,14 +1,14 @@
 local file_root = os.getenv('HOME') .. '/.config/nvim/lua/plugins/*'
 
-vim.api.nvim_create_autocmd({ 'FileType' }, {
-  callback = function()
-    if vim.bo.filetype == 'netrw' then
-      vim.opt.colorcolumn = '0'
-    else
-      vim.opt.colorcolumn = '80'
-    end
-  end
-})
+-- vim.api.nvim_create_autocmd({ 'FileType' }, {
+--   callback = function()
+--     if vim.bo.filetype == 'netrw' then
+--       vim.opt.colorcolumn = '0'
+--     else
+--       vim.opt.colorcolumn = '80'
+--     end
+--   end
+-- })
 
 -- vim.api.nvim_create_autocmd({ 'BufWritePost', }, {
 --   pattern = file_root,
