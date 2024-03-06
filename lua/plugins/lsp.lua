@@ -30,7 +30,16 @@ zero.config = function()
     }
   })
   require('mason-lspconfig').setup({
-    ensure_installed = { 'lua_ls', 'bashls', 'clangd', 'pylsp', },
+    ensure_installed = {
+      'lua_ls',
+      'bashls',
+      'clangd',
+      'pylsp',
+      'cssls',
+      'html',
+      'eslint',
+      'tsserver',
+    },
     handlers = {
       lsp_zero.default_setup,
       lua_ls = function()

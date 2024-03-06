@@ -7,6 +7,7 @@ schemes.catppuccin = {
   event = 'UIEnter',
   config = function()
     require('catppuccin').setup({
+      transparent_background = true,
       no_italic = true,
       color_overrides = {
         mocha = {
