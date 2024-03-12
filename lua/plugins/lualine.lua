@@ -160,7 +160,7 @@ lualine.config = function()
 	ins_left {
 		-- Lsp server name .
 		function()
-			local msg = 'No Active Lsp'
+			local msg = ''
 			local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
 			local clients = vim.lsp.get_active_clients()
 			if next(clients) == nil then
@@ -174,7 +174,7 @@ lualine.config = function()
 			end
 			return msg
 		end,
-		icon = ' LSP:',
+		-- icon = ' LSP:',
 		color = { fg = '#ffffff', gui = 'bold' },
 	}
 
