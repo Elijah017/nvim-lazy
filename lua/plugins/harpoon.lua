@@ -4,7 +4,7 @@ local _ret = {
 	dependencies = {
 		{ 'nvim-lua/plenary.nvim', lazy = true },
 	},
-  keys = { '<leader>a', '<C-e>' },
+  keys = { '<leader>a', '<C-e>', '<leader>h' },
 }
 
 _ret.config = function()

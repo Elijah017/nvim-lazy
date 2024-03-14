@@ -3,25 +3,14 @@ local support = {
   lazy = true,
   event = { 'BufNewFile', 'BufReadPost', },
   dependencies = {
-    { "nvim-treesitter/nvim-treesitter", lazy = true, },
-    { "nvim-lua/plenary.nvim",           lazy = true, },
+    "nvim-treesitter/nvim-treesitter",
+    "nvim-lua/plenary.nvim",
+    'hrsh7th/nvim-cmp',
+    'neovim/nvim-lspconfig',
   },
   config = function()
-    require("html-css"):setup()
-    require('cmp').setup({
-      sources = {
-        { name = 'html-css' },
-      },
-      formatting = {
-        format = function(entry, vim_item)
-          if entry.source.name == "html-css" then
-            vim_item.menu = entry.completion_item.menu
-          end
-          return vim_item
-        end
-      },
-    })
-  end
+    require('html-css'):setup()
+  end,
 }
 
 return support

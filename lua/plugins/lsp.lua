@@ -11,6 +11,7 @@ local lsp_config = {
     { 'williamboman/mason-lspconfig.nvim', lazy = true },
     { 'hrsh7th/cmp-nvim-lsp',              lazy = true },
     { 'L3MON4D3/LuaSnip',                  lazy = true },
+    'hrsh7th/nvim-cmp',
   },
   config = function()
     vim.keymap.set('n', 'gl', '<cmd>lua vim.diagnostic.open_float()<cr>')
@@ -33,24 +34,6 @@ local lsp_config = {
     })
 
     lsp_servers.manual_servers_setup()
-
-    local cmp = require('cmp')
-    cmp.setup({
-      sources = {
-        { name = 'nvim_lsp' },
-      },
-      mapping = cmp.mapping.preset.insert({
-        ['<C-p>'] = cmp.mapping.select_prev_item({ behaviour = 'select' }),
-        ['<C-n>'] = cmp.mapping.select_next_item({ behaviour = 'select' }),
-        ['<C-y>'] = cmp.mapping.confirm({ select = true }),
-        ['<C-Space>'] = cmp.mapping.complete(),
-      }),
-      snippet = {
-        expand = function(args)
-          require('luasnip').lsp_expand(args.body)
-        end,
-      },
-    })
   end,
 }
 
