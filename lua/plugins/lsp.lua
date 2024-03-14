@@ -10,7 +10,6 @@ local lsp_config = {
     { 'williamboman/mason.nvim',           lazy = true },
     { 'williamboman/mason-lspconfig.nvim', lazy = true },
     { 'hrsh7th/cmp-nvim-lsp',              lazy = true },
-    { 'hrsh7th/nvim-cmp',                  lazy = true },
     { 'L3MON4D3/LuaSnip',                  lazy = true },
   },
   config = function()
