@@ -2,6 +2,7 @@ local treesitter = {
   'nvim-treesitter/nvim-treesitter',
   name = 'treesitter',
   lazy = true,
+  event = { 'BufNewFile', 'BufReadPost', },
   cmd = { 'TSUpdate', },
   dependencies = {
     require('util.notify'),

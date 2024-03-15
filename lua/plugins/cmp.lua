@@ -1,13 +1,37 @@
 local nvim_cmp = {
   'hrsh7th/nvim-cmp',
   lazy = true,
-  dependencies = { 'hrsh7th/cmp-nvim-lsp', lazy = true },
+  dependencies = {
+    { 'hrsh7th/cmp-nvim-lsp',     lazy = true, },
+    { "hrsh7th/cmp-buffer",       lazy = true, },
+    { "hrsh7th/cmp-path",         lazy = true, },
+    { "saadparwaiz1/cmp_luasnip", lazy = true, },
+    { "hrsh7th/cmp-nvim-lua",     lazy = true, },
+    { "hrsh7th/cmp-cmdline",      lazy = true, },
+  },
   config = function()
     local cmp = require('cmp')
     cmp.setup({
       sources = {
-        { name = 'nvim_lsp' },
-        { name = 'html-css' },
+        { name = "nvim_lsp" },
+        { name = "buffer" },
+        { name = "path" },
+        { name = "luasnip" },
+        { name = "nvim_lua" },
+        { name = "cmdline" },
+        {
+          name = 'html-css',
+          option = {
+            max_count = {},                              -- not ready yet
+            enable_on = { "html", },                     -- set the file types you want the plugin to work on
+            file_extensions = { "css", "sass", "less" }, -- set the local filetypes from which you want to derive classes
+            style_sheets = {
+              -- example of remote styles, only css no js for now
+              -- "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css",
+              -- "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css",
+            },
+          },
+        },
       },
       mapping = cmp.mapping.preset.insert({
         ['<C-p>'] = cmp.mapping.select_prev_item({ behaviour = 'select' }),

@@ -9,11 +9,7 @@ local support = {
     'neovim/nvim-lspconfig',
   },
   config = function()
-    local Source = require('html-css')
-    Source.enable_on = { 'html' }
-    Source.file_extensions = { 'css', 'sass', 'less' }
-    Source.style_sheets = {}
-    Source:setup()
+    require('html-css'):setup()
   end,
 }
 
