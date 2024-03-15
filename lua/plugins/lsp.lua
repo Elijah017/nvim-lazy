@@ -1,6 +1,3 @@
--- note: diagnostics are not exclusive to lsp servers
--- so these can be global keybindings
-
 local lsp_config = {
   'neovim/nvim-lspconfig',
   lazy = true,
@@ -27,13 +24,13 @@ local lsp_config = {
         }
       }
     })
-    local lsp_servers = require('util.language-servers')
+    local util = require('util.language-servers')
     require('mason-lspconfig').setup({
-      ensure_installed = lsp_servers.servers,
-      handlers = lsp_servers.handlers,
+      ensure_installed = util.servers,
+      handlers = util.handlers,
     })
 
-    lsp_servers.manual_servers_setup()
+    util.manual_servers_setup()
   end,
 }
 
