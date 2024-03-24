@@ -22,7 +22,12 @@ _ret.config = function()
     u = "UndotreeToggle",
     g = "Git",
     m = "Mason",
+    Y = { '"+Y', "yank line to clipboard" },
 	}, { mode = "n", prefix = "<leader>" })
+
+  wk.register({
+    y = { '"+y', "yank to clipboard" },
+  }, { mode = { 'n', 'v' }, prefix = '<leader>' })
 end
 
 return _ret

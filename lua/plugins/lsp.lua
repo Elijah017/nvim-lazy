@@ -33,7 +33,7 @@ local lsp_config = {
       handlers = lsp_servers.handlers,
     })
 
-    lsp_servers.manual_servers_setup()
+    -- lsp_servers.manual_servers_setup()
   end,
 }
 

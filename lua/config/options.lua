@@ -21,4 +21,7 @@ vim.opt.backup = false
 vim.opt.undodir = vim.fn.stdpath('data') .. '/undodir'
 vim.opt.undofile = true
 
+-- stop termguicolors error
+vim.cmd[[ set termguicolors ]]
+
 -- vim.opt.colorcolumn = '80'

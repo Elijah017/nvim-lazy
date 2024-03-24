@@ -22,7 +22,7 @@ local lazy_config = {
   change_detection = { notify = false, },
 }
 
-require('config.set')
+require('config.options')
 require('config.keymaps')
 require("lazy").setup("plugins", lazy_config)
 require('config.autocmds')

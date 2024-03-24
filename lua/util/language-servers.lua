@@ -45,12 +45,13 @@ local M = {
     'html',
     'eslint',
     -- 'tsserver',
+    'clangd',
   },
 }
 
-M.manual_servers_setup = function()
-  lspconfig.clangd.setup({})
-end
+-- M.manual_servers_setup = function()
+--   lspconfig.clangd.setup({})
+-- end
 
 M.handlers = {
   function(server) -- a default method to setup servers
