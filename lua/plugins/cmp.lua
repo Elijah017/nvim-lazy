@@ -7,7 +7,6 @@ local nvim_cmp = {
     { "hrsh7th/cmp-path",         lazy = true, },
     { "saadparwaiz1/cmp_luasnip", lazy = true, },
     { "hrsh7th/cmp-nvim-lua",     lazy = true, },
-    { "hrsh7th/cmp-cmdline",      lazy = true, },
   },
   config = function()
     local cmp = require('cmp')
@@ -18,7 +17,6 @@ local nvim_cmp = {
         { name = "path" },
         { name = "luasnip" },
         { name = "nvim_lua" },
-        { name = "cmdline" },
         {
           name = 'html-css',
           option = {

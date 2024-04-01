@@ -1,18 +1,19 @@
 -- note: diagnostics are not exclusive to lsp servers
 -- so these can be global keybindings
+local deps = require('util.dependencies').new({
+  { 'williamboman/mason.nvim',           lazy = true },
+  { 'williamboman/mason-lspconfig.nvim', lazy = true },
+  { 'hrsh7th/cmp-nvim-lsp',              lazy = true },
+  { 'L3MON4D3/LuaSnip',                  lazy = true },
+  'hrsh7th/nvim-cmp',
+})
 
 local lsp_config = {
   'neovim/nvim-lspconfig',
   lazy = true,
   event = { 'BufNewFile', 'BufReadPre', },
   keys = { { '<leader>ma', '<cmd>Mason<cr>', { desc = 'Mason', mode = 'n' } } },
-  dependencies = {
-    { 'williamboman/mason.nvim',           lazy = true },
-    { 'williamboman/mason-lspconfig.nvim', lazy = true },
-    { 'hrsh7th/cmp-nvim-lsp',              lazy = true },
-    { 'L3MON4D3/LuaSnip',                  lazy = true },
-    'hrsh7th/nvim-cmp',
-  },
+  dependencies = deps.dependancies,
   config = function()
     vim.keymap.set('n', 'gl', '<cmd>lua vim.diagnostic.open_float()<cr>')
     vim.keymap.set('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<cr>')
@@ -33,7 +34,7 @@ local lsp_config = {
       handlers = lsp_servers.handlers,
     })
 
-    -- lsp_servers.manual_servers_setup()
+    lsp_servers.manual_servers_setup()
   end,
 }
 

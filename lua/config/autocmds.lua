@@ -21,6 +21,16 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end
 })
 
+vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufReadPost' }, {
+  callback = function()
+    if  vim.bo.filetype == 'markdown' then
+      vim.opt.wrap = true
+    else
+      vim.opt.wrap = false
+    end
+  end
+})
+
 -- vim.api.nvim_create_autocmd({ 'FileType' }, {
 --   callback = function()
 --     if vim.bo.filetype == 'netrw' then
@@ -46,4 +56,3 @@ vim.api.nvim_create_autocmd('LspAttach', {
 --     vim.cmd("Lazy reload " .. plugin)
 --   end
 -- })
-

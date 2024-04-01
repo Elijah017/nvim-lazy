@@ -40,30 +40,31 @@ local M = {
   servers = {
     'lua_ls',
     'bashls',
-    'pylsp',
     'cssls',
     'html',
     'eslint',
-    -- 'tsserver',
     'clangd',
   },
 }
 
--- M.manual_servers_setup = function()
---   lspconfig.clangd.setup({})
--- end
+M.manual_servers_setup = function()
+  -- lspconfig.clangd.setup({})
+  lspconfig.pylsp.setup({
+
+  })
+end
 
 M.handlers = {
   function(server) -- a default method to setup servers
-    require('lspconfig')[server].setup({
+    lspconfig[server].setup({
       capabilities = lsp_capabilities,
     })
   end,
   lua_ls = function()
-    require('lspconfig').lua_ls.setup(nvim_opts())
+    lspconfig.lua_ls.setup(nvim_opts())
   end,
   bashls = function()
-    require('lspconfig').bashls.setup({
+    lspconfig.bashls.setup({
       cmd = { "bash-language-server", "start" },
       filetypes = { "sh", "bash" }
     })

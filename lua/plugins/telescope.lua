@@ -12,16 +12,11 @@ local treesitter = {
   end,
 }
 
-local deps = {
+local deps = require('util.dependencies').new({
   { 'nvim-lua/plenary.nvim', lazy = true },
   require('util.notify'),
   treesitter,
-}
-for _, v in pairs(require('plugins.colourscheme')) do
-  if v['name'] ~= nil then
-    table.insert(deps, v['name'])
-  end
-end
+}, require('plugins.colourscheme'))
 
 local telescope = {
   'nvim-telescope/telescope.nvim',
@@ -29,7 +24,7 @@ local telescope = {
   branch = '0.1.x',
   lazy = true,
   cmd = { 'Telescope', },
-  dependencies = deps,
+  dependencies = deps.dependancies,
   keys = { '<leader>f', },
 }
 

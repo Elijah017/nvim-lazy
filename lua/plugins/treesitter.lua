@@ -16,8 +16,8 @@ local treesitter = {
   },
   config = function()
     require('nvim-treesitter.configs').setup({
-      autotag = { enable = true },
       ensure_installed = {
+        'c',
         'lua',
         'bash',
         'python',
@@ -26,6 +26,18 @@ local treesitter = {
         'typescript',
         'css',
       },
+
+      -- Install parsers synchronously (only applied to `ensure_installed`)
+      sync_install = true,
+      auto_install = false,
+
+      highlight = { enable = true, },
+
+      indent = { enable = false },
+
+      incremental_selection = { enable = true, },
+
+      autotag = { enable = true },
     })
   end
 }
