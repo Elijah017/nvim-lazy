@@ -5,7 +5,7 @@ local treesitter = {
   event = { 'BufNewFile', 'BufReadPost', },
   cmd = { 'TSUpdate', },
   dependencies = {
-    require('util.notify'),
+    "rcarriga/nvim-notify",
     {
       'windwp/nvim-ts-autotag',
       lazy = true,
@@ -25,10 +25,12 @@ local treesitter = {
         'javascript',
         'typescript',
         'css',
+        'sql',
+        'markdown',
       },
 
       -- Install parsers synchronously (only applied to `ensure_installed`)
-      sync_install = true,
+      sync_install = false,
       auto_install = false,
 
       highlight = { enable = true, },

@@ -1,25 +1,29 @@
 ---@class DependancyHandler
-local dependancy_handler = {
-  dependancies = {} ---@type table<string | table> 
-}
+local dependancy_handler = {}
+
+---@type LazySpec[]
+dependancy_handler.plugins = {}
 
 ---modifies self by merging the dependancies provided by deps
----@param self DependancyHandler
----@param deps table
-dependancy_handler.merge = function(self, deps)
+---@param deps LazySpec[]
+function dependancy_handler:merge(deps)
   for _, v in pairs(deps) do
     if v ~= nil then
-      table.insert(self.dependancies, v)
+      table.insert(self.plugins, v)
     end
   end
 end
 
 ---setups up a dependancy handler for the caller
----@param deps table<string | table>
----@param merge table | nil
+---@param deps LazySpec[] | nil
+---@param merge LazySpec[] | nil
 ---@return DependancyHandler
-dependancy_handler.new = function(deps, merge)
-  dependancy_handler.dependancies = deps
+function dependancy_handler.new(deps, merge)
+  if deps == nil then
+    return dependancy_handler
+  end
+
+  dependancy_handler.plugins = deps
   if merge ~= nil then
     dependancy_handler:merge(merge)
   end

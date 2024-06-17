@@ -44,6 +44,9 @@ local M = {
     'html',
     'eslint',
     'clangd',
+    'tsserver',
+    'sqlls',
+    'cypher_ls',
   },
 }
 
@@ -67,6 +70,21 @@ M.handlers = {
     lspconfig.bashls.setup({
       cmd = { "bash-language-server", "start" },
       filetypes = { "sh", "bash" }
+    })
+  end,
+  sqlls = function()
+    lspconfig.sqlls.setup({
+      root_dir = require('lspconfig.util').root_pattern(vim.g.root_spec),
+    })
+  end,
+  html = function()
+    lspconfig.html.setup({
+      filetypes = { 'html', 'htmldjango' },
+    })
+  end,
+  cypher_ls = function()
+    lspconfig.cypher_ls.setup({
+      filetypes = { 'cypher', 'cqlang' },
     })
   end,
 }

@@ -1,7 +1,7 @@
 local support = {
   "Jezda1337/nvim-html-css",
   lazy = true,
-  event = { 'BufNewFile', 'BufReadPost', },
+  ft = { 'html', 'css', 'htmldjango', },
   dependencies = {
     "nvim-treesitter/nvim-treesitter",
     "nvim-lua/plenary.nvim",

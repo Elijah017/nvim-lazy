@@ -14,14 +14,14 @@ lualine.config = function()
 	-- Color table for highlights
 	-- stylua: ignore
 	local colors = {
-		bg       = '#202328',
+		bg       = '#1B1624', -- bg       = '#202328',
 		fg       = '#bbc2cf',
 		yellow   = '#ECBE7B',
 		cyan     = '#008080',
 		darkblue = '#081633',
 		green    = '#98be65',
 		orange   = '#FF8800',
-		violet   = '#a9a1e1',
+		violet   = '#1B1624', -- violet   = '#a9a1e1',
 		magenta  = '#c678dd',
 		blue     = '#51afef',
 		red      = '#ec5f67',
@@ -47,7 +47,7 @@ lualine.config = function()
 			-- Disable sections and component separators
 			component_separators = '',
 			section_separators = '',
-			theme = 'catppuccin'
+			theme = 'auto'
 		},
 		sections = {
 			-- these are to remove the defaults
@@ -79,14 +79,6 @@ lualine.config = function()
 	local function ins_right(component)
 		table.insert(config.sections.lualine_x, component)
 	end
-
-	ins_left {
-		function()
-			return '▊'
-		end,
-		color = { fg = colors.blue }, -- Sets highlighting of component
-		padding = { left = 0, right = 1 }, -- We don't need space before this
-	}
 
 	ins_left {
 		-- mode component
@@ -209,14 +201,6 @@ lualine.config = function()
 			removed = { fg = colors.red },
 		},
 		cond = conditions.hide_in_width,
-	}
-
-	ins_right {
-		function()
-			return '▊'
-		end,
-		color = { fg = colors.blue },
-		padding = { left = 1 },
 	}
 
 	-- Now don't forget to initialize lualine

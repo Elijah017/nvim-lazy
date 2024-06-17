@@ -25,6 +25,7 @@ vim.opt.undofile = true
 vim.cmd[[ set termguicolors ]]
 
 -- vim.opt.colorcolumn = '80'
+vim.opt.cursorline = true
 
 -- turn off text wrapping
 vim.opt.wrap = false

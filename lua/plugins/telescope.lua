@@ -14,7 +14,7 @@ local treesitter = {
 
 local deps = require('util.dependencies').new({
   { 'nvim-lua/plenary.nvim', lazy = true },
-  require('util.notify'),
+  "rcarriga/nvim-notify",
   treesitter,
 }, require('plugins.colourscheme'))
 
@@ -24,7 +24,7 @@ local telescope = {
   branch = '0.1.x',
   lazy = true,
   cmd = { 'Telescope', },
-  dependencies = deps.dependancies,
+  dependencies = deps.plugins,
   keys = { '<leader>f', },
 }
 

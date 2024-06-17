@@ -71,3 +71,5 @@ vim.keymap.set('n', '<leader>Y', [[ "+Y ]])
 
 -- Format entire file
 vim.keymap.set('n', '==', vim.lsp.buf.format)
+
+vim.keymap.set('n', '<space>', '<Nop>', {noremap = true})

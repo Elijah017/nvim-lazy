@@ -4,7 +4,7 @@ local noice = {
   lazy = true,
   dependencies = {
     "MunifTanjim/nui.nvim",
-    require('util.notify'),
+    "rcarriga/nvim-notify",
   },
   config = function()
   end,

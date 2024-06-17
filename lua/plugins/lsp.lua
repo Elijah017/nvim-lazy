@@ -1,5 +1,6 @@
 -- note: diagnostics are not exclusive to lsp servers
 -- so these can be global keybindings
+---@type DependancyHandler
 local deps = require('util.dependencies').new({
   { 'williamboman/mason.nvim',           lazy = true },
   { 'williamboman/mason-lspconfig.nvim', lazy = true },
@@ -8,12 +9,13 @@ local deps = require('util.dependencies').new({
   'hrsh7th/nvim-cmp',
 })
 
+---@type LazySpec
 local lsp_config = {
   'neovim/nvim-lspconfig',
   lazy = true,
   event = { 'BufNewFile', 'BufReadPre', },
   keys = { { '<leader>ma', '<cmd>Mason<cr>', { desc = 'Mason', mode = 'n' } } },
-  dependencies = deps.dependancies,
+  dependencies = deps.plugins,
   config = function()
     vim.keymap.set('n', 'gl', '<cmd>lua vim.diagnostic.open_float()<cr>')
     vim.keymap.set('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<cr>')
