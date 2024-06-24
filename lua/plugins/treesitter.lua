@@ -21,11 +21,6 @@ local treesitter = {
         'lua',
         'bash',
         'python',
-        'html',
-        'javascript',
-        'typescript',
-        'css',
-        'sql',
         'markdown',
       },
 
