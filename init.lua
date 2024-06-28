@@ -11,4 +11,11 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require('lazy').setup('elijah')
+local lazy_config = {
+  install = {
+    colorscheme = { 'tokyonight' },
+  },
+  change_detection = { notify = false, },
+}
+
+require('lazy').setup('elijah', lazy_config)
