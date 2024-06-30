@@ -4,7 +4,7 @@ local namespace = 'plugins.mason.dap.'
 local plugins = {
   'dap',
   'dap-ui',
-  'dap-projects',
+  -- 'dap-projects',
 }
 
 local M = util.get_deps(namespace, plugins)
