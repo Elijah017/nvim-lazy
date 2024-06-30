@@ -15,7 +15,7 @@ local lazy_config = {
   install = {
     colorscheme = { 'tokyonight' },
   },
-  change_detection = { notify = false, },
+  -- change_detection = { notify = false, },
 }
 
 require('lazy').setup('elijah', lazy_config)
