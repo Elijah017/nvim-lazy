@@ -10,6 +10,7 @@ local modules = {
 	'plugins.colour',
 	'plugins.nav',
 	'plugins.mason',
+  'plugins.extra',
 }
 
 -- Set colourscheme and all related aspects
