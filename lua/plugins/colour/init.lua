@@ -5,6 +5,7 @@ local namespace = 'plugins.colour.'
 local plugins = {
 	'tokyonight',
   'lualine',
+  'treesitter',
 }
 
 vim.api.nvim_create_augroup('ColoursGroup', {})
