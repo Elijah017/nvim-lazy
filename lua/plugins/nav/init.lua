@@ -2,7 +2,9 @@ local util = require('core.util')
 
 local namespace = 'plugins.nav.'
 local plugins = {
-	'telescope',
+  'telescope',
+  'neotree',
+  'dashboard',
 }
 
 return util.get_deps(namespace, plugins)
