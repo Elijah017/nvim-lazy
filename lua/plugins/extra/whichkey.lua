@@ -12,7 +12,7 @@ M.config = function()
 
   wk.register({
     f = {
-      name = "Telescope",
+      name = "+telescope",
       f = { '<cmd> Telescope find_files <cr>', "Find files" },
       r = { '<cmd> Telescope live_grep <cr>', "Live grep" },
       b = { '<cmd> Telescope buffers <cr>', "Find buffers" },
