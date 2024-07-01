@@ -2,7 +2,7 @@
 vim.api.nvim_create_autocmd('BufEnter', {
   callback = function()
     local root = vim.fs.root(0, { '.git', '.nvim' })
-    if root ~= nil then
+    if root then
       vim.cmd('cd ' .. root)
     end
   end,
