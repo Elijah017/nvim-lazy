@@ -64,13 +64,14 @@ M.config = function()
         package_pending = "➜ ",
         package_uninstalled = "✗ "
       }
-    }
+    },
   })
   require('mason-lspconfig').setup({
     ensure_installed = {
       'lua_ls',
-      'clangd',
       'bashls',
+      'pylsp',
+      'clangd',
     },
     automatic_installation = true,
     handlers = {

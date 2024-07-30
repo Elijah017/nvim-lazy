@@ -1,6 +1,6 @@
 local M = {}
 
---- loads all scripts in the pludings table and returns the appropriate
+--- loads all scripts in the `plugins` table and returns the appropriate
 --- plugin spec array
 ---@param namespace string
 ---@param plugins string[]
