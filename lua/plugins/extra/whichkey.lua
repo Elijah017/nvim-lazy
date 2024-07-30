@@ -10,22 +10,39 @@ end
 M.config = function()
   local wk = require("which-key")
 
-  wk.register({
-    f = {
-      name = "+telescope",
-      f = { '<cmd> Telescope find_files <cr>', "Find files" },
-      r = { '<cmd> Telescope live_grep <cr>', "Live grep" },
-      b = { '<cmd> Telescope buffers <cr>', "Find buffers" },
-      h = { '<cmd> Telescope help_tags <cr>', "Find help tags" },
-      g = { '<cmd>Telescope git_files<cr>', "Find git files" },
-      c = {
-        function()
-          require('telescope.builtin').colorscheme({ enable_preview = true })
-        end,
-        'Live Colourscheme Preview'
-      },
+  wk.add({
+    mode = 'n',
+    { "<leader>f",  group = "telescope" },
+    { "<leader>fb", "<cmd> Telescope buffers <cr>", desc = "Find buffers" },
+    {
+      "<leader>fc",
+      function()
+        require('telescope.builtin').colorscheme({ enable_preview = true })
+      end,
+      desc = "Live Colourscheme Preview"
     },
-    { mode = 'n', prefix = '<leader>' }
+    { "<leader>ff", "<cmd> Telescope find_files <cr>", desc = "Find files" },
+    { "<leader>fg", "<cmd>Telescope git_files<cr>",    desc = "Find git files" },
+    { "<leader>fh", "<cmd> Telescope help_tags <cr>",  desc = "Find help tags" },
+    { "<leader>fr", "<cmd> Telescope live_grep <cr>",  desc = "Live grep" },
+  })
+
+  wk.add({
+    mode = 'n',
+    { '<leader>w', group = "window" },
+  })
+  wk.add({
+    mode = 'n',
+    { '<leader>t', group = "terminal" },
+  })
+
+  wk.add({
+    mode = 'n',
+    { '<leader>ma', desc = "Mason" },
+  })
+  wk.add({
+    mode = 'n',
+    { '<leader>u', desc = "Undo Tree" },
   })
 end
 

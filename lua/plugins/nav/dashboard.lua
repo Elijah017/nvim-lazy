@@ -18,8 +18,8 @@ M.config = function()
     shortcut_type = 'number',
     config = {
       -- header = require('ascii').get_random_global(),
-      -- header = require('ascii').art.text.neovim.delta_corps_priest1,
-      header = require('ascii').art.text.neovim.bloody,
+      header = require('ascii').art.text.neovim.delta_corps_priest1,
+      -- header = require('ascii').art.text.neovim.bloody,
       week_header = { enable = false, },
       shortcut = {
         {
@@ -34,7 +34,7 @@ M.config = function()
           desc = 'Files',
           group = 'Label',
           action = 'Telescope find_files',
-          key = 'f',
+          key = 's',
         },
         {
           icon = '󰿅 ',
@@ -45,8 +45,19 @@ M.config = function()
         },
       },
       packages = { enable = true },
-      project = { enable = false, limit = 4, icon = '󰉖 ', label = 'Directories', action = 'Telescope find_files cwd=' },
-      mru = { limit = 8, icon = ' ', label = 'Recent Files', cwd_only = false },
+      project = {
+        enable = false,
+        limit = 4,
+        icon = '󰉖 ',
+        label = 'Directories',
+        action = 'Telescope find_files cwd='
+      },
+      mru = {
+        limit = 8,
+        icon = ' ',
+        label = 'Recent Files',
+        cwd_only = false
+      },
       footer = {},
     },
   })
