@@ -1,16 +1,16 @@
-vim.g.mapleader = ' '
+vim.g.mapleader = " "
 
-require('core')
-local util = require('core.util')
+require("core")
+local util = require("core.util")
 
 ---@type table[LazyPluginSpec]
 local M = {}
 
 local modules = {
-	'plugins.colour',
-	'plugins.nav',
-	'plugins.mason',
-  'plugins.extra',
+	"plugins.colour",
+	"plugins.nav",
+	"plugins.mason",
+	"plugins.extra",
 }
 
 -- Set colourscheme and all related aspects

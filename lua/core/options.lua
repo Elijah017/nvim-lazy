@@ -1,6 +1,6 @@
-vim.opt.guicursor = 'i-ci-ve:ver25'
+vim.opt.guicursor = "i-ci-ve:ver25"
 
-vim.g.root_spec = { 'lsp', { '.git', 'lua' }, 'cwd' }
+vim.g.root_pattern = { ".git", ".nvim", "lua", "Makefile", "CMakeLists.txt" }
 
 vim.opt.nu = true
 vim.opt.relativenumber = true
@@ -18,11 +18,11 @@ vim.opt.scrolloff = 10
 -- long running undos
 vim.opt.swapfile = false
 vim.opt.backup = false
-vim.opt.undodir = vim.fn.stdpath('data') .. '/undodir'
+vim.opt.undodir = vim.fn.stdpath("data") .. "/undodir"
 vim.opt.undofile = true
 
 -- stop termguicolors error
-vim.cmd[[ set termguicolors ]]
+vim.cmd([[ set termguicolors ]])
 
 -- vim.opt.colorcolumn = '80'
 vim.opt.cursorline = true

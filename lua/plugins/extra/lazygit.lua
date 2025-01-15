@@ -1,9 +1,9 @@
-local M = { 'kdheepak/lazygit.nvim', lazy = true }
+local M = { "kdheepak/lazygit.nvim", lazy = true }
 
-M.dependecies = { 'nvim-lua/plenary.nvim', }
+M.dependecies = { "nvim-lua/plenary.nvim" }
 
 M.keys = {
-  { "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" }
+	{ "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" },
 }
 
 return M

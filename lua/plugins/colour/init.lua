@@ -1,16 +1,16 @@
-local util = require('core.util')
+local util = require("core.util")
 
-local active_colourscheme = 'tokyonight'
-local namespace = 'plugins.colour.'
+local active_colourscheme = "tokyonight"
+local namespace = "plugins.colour."
 local plugins = {
-	'tokyonight',
-  'lualine',
-  'treesitter',
+	"tokyonight",
+	"lualine",
+	"treesitter",
 }
 
-vim.api.nvim_create_augroup('ColoursGroup', {})
-vim.api.nvim_create_autocmd('UIEnter', {
-	group = 'ColoursGroup',
+vim.api.nvim_create_augroup("ColoursGroup", {})
+vim.api.nvim_create_autocmd("UIEnter", {
+	group = "ColoursGroup",
 	callback = function()
 		vim.cmd.colorscheme(active_colourscheme)
 	end,

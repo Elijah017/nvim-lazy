@@ -1,10 +1,10 @@
-local util = require('core.util')
+local util = require("core.util")
 
-local namespace = 'plugins.mason.'
+local namespace = "plugins.mason."
 local plugins = {
-  'mason',
-  'dap',
-  'conform',
+	"mason",
+	"dap",
+	"conform",
 }
 
 return util.get_deps(namespace, plugins)

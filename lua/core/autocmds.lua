@@ -1,11 +1,10 @@
 -- Sets working directory to project root even if called from further internal file
-vim.api.nvim_create_autocmd('BufEnter', {
-  callback = function()
-    local root = vim.fs.root(0, { '.git', '.nvim' })
-    if root then
-      vim.cmd('cd ' .. root)
+vim.api.nvim_create_autocmd("BufEnter", {
+	callback = function()
+    if vim.g.root_set then
+      vim.cmd('cd ' .. vim.g.root_dir)
     end
-  end,
+	end,
 })
 
 -- vim.api.nvim_create_autocmd('BufWritePre', {
