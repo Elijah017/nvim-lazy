@@ -2,8 +2,9 @@ local util = require('core.util')
 
 local namespace = 'plugins.mason.'
 local plugins = {
-	'mason',
+  'mason',
   'dap',
+  'conform',
 }
 
 return util.get_deps(namespace, plugins)
