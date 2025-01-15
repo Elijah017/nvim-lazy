@@ -21,7 +21,13 @@ M.config = function()
 				args = { "--project=" .. vim.fn.getcwd() .. "/.astylerc" },
 			},
 			uncrustify = {
-				args = { "-c", vim.fn.getcwd() .. "/uncrustify.conf", "--replace", "$FILENAME", "--no-backup" },
+				args = {
+					"-c",
+					vim.g.root_dir .. "/uncrustify.conf",
+					"--replace",
+					"$FILENAME",
+					"--no-backup",
+				},
 				stdin = false,
 			},
 		},

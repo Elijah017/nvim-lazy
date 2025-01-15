@@ -9,7 +9,7 @@ M.get_deps = function(namespace, plugins)
 	local spec = {}
 	for _, v in ipairs(plugins) do
 		local plugin = require(namespace .. v)
-		if type(plugin[1]) ~= 'string' then
+		if type(plugin[1]) ~= "string" then
 			M.merge_specs(spec, plugin)
 		else
 			spec[#spec + 1] = plugin
@@ -22,7 +22,7 @@ end
 ---@param left LazySpec
 ---@param right LazySpec
 M.merge_specs = function(left, right)
-	for i=1, #right do
+	for i = 1, #right do
 		left[#left + 1] = right[i]
 	end
 end

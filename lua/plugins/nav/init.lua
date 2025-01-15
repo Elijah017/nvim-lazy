@@ -1,10 +1,10 @@
-local util = require('core.util')
+local util = require("core.util")
 
-local namespace = 'plugins.nav.'
+local namespace = "plugins.nav."
 local plugins = {
-  'telescope',
-  'neotree',
-  'dashboard',
+	"telescope",
+	"neotree",
+	"dashboard",
 }
 
 return util.get_deps(namespace, plugins)
