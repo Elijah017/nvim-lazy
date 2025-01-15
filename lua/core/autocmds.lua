@@ -8,17 +8,17 @@ vim.api.nvim_create_autocmd('BufEnter', {
   end,
 })
 
-vim.api.nvim_create_autocmd('BufWritePre', {
-  callback = function()
-    local client = vim.lsp.get_clients()[1]
-
-    -- Client may be nil
-    if client then
-      -- Check if the server supports formatting
-      if client.server_capabilities.documentFormattingProvider then
-        -- Sync formatting prevents weird buffer interactions
-        vim.lsp.buf.format({ async = false })
-      end
-    end
-  end,
-})
+-- vim.api.nvim_create_autocmd('BufWritePre', {
+--   callback = function()
+--     local client = vim.lsp.get_clients()[1]
+--
+--     -- Client may be nil
+--     if client then
+--       -- Check if the server supports formatting
+--       if client.server_capabilities.documentFormattingProvider then
+--         -- Sync formatting prevents weird buffer interactions
+--         vim.lsp.buf.format({ async = false })
+--       end
+--     end
+--   end,
+-- })

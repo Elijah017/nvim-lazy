@@ -22,6 +22,8 @@ M.config = function()
       'lua',
       'bash',
       'markdown',
+      'go',
+      'python',
     },
 
     -- Install parsers synchronously (only applied to `ensure_installed`)

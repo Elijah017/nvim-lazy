@@ -72,6 +72,7 @@ M.config = function()
       'bashls',
       'pylsp',
       'clangd',
+      'gopls',
     },
     automatic_installation = true,
     handlers = {
