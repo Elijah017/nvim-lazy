@@ -6,6 +6,11 @@ M.event = { "BufNewfile", "BufReadPre" }
 M.dependencies = { "williamboman/mason.nvim" }
 
 M.config = function()
+	local uncrustify_file = vim.g.root_dir .. "/uncrustify.conf"
+	if not require("core.util").file_exists(uncrustify_file) then
+		uncrustify_file = vim.fn.stdpath("data") .. "/conform/uncrustify.conf"
+	end
+
 	require("conform").setup({
 		formatters_by_ft = {
 			lua = { "stylua" },
@@ -23,7 +28,7 @@ M.config = function()
 			uncrustify = {
 				args = {
 					"-c",
-					vim.g.root_dir .. "/uncrustify.conf",
+					uncrustify_file,
 					"--replace",
 					"$FILENAME",
 					"--no-backup",
