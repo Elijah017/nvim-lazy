@@ -27,4 +27,14 @@ M.merge_specs = function(left, right)
 	end
 end
 
+--- Checks whether a file (including directories) exists at the supplied path
+---@param path string
+---@return boolean
+M.file_exists = function(path)
+	if type(path) ~= "string" then
+		return false
+	end
+	return os.rename(path, path) and true or false
+end
+
 return M
