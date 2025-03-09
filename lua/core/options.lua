@@ -30,4 +30,4 @@ vim.opt.cursorline = true
 -- turn off text wrapping
 vim.opt.wrap = false
 
-vim.opt.foldmethod = "marker"
+-- vim.opt.foldmethod = "marker"

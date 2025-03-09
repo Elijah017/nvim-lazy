@@ -4,7 +4,7 @@ local namespace = "plugins.nav."
 local plugins = {
 	"telescope",
 	"neotree",
-	"dashboard",
+	-- "dashboard",
 }
 
 return util.get_deps(namespace, plugins)

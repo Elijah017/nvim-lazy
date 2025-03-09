@@ -73,6 +73,7 @@ M.config = function()
 			"pylsp",
 			"clangd",
 			"gopls",
+			"asm_lsp",
 		},
 		automatic_installation = true,
 		handlers = {
