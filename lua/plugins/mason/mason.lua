@@ -74,6 +74,7 @@ M.config = function()
 			"clangd",
 			"gopls",
 			"asm_lsp",
+			"ts_ls",
 		},
 		automatic_installation = true,
 		handlers = {

@@ -6,6 +6,7 @@ local plugins = {
 	"tokyonight",
 	"lualine",
 	"treesitter",
+	"rainbow-csv",
 }
 
 vim.api.nvim_create_augroup("ColoursGroup", {})

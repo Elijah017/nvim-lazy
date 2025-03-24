@@ -6,16 +6,16 @@ M.event = { "BufNewfile", "BufReadPre" }
 M.dependencies = { "williamboman/mason.nvim" }
 
 M.config = function()
-	local uncrustify_file = vim.g.root_dir .. "/uncrustify.conf"
-	if not require("core.util").file_exists(uncrustify_file) then
-		uncrustify_file = vim.fn.stdpath("data") .. "/conform/uncrustify.conf"
-	end
-
+	local util = require("core.util")
 	require("conform").setup({
+		log_level = vim.log.levels.DEBUG,
 		formatters_by_ft = {
 			lua = { "stylua" },
-			c = { "uncrustify" },
+			c = { "astyle" },
 			cpp = { "uncrustify" },
+			javascript = { "prettier" },
+			typescript = { "prettier" },
+			typescriptreact = { "prettier" },
 		},
 		format_on_save = {
 			timeout_ms = 1000,
@@ -23,17 +23,25 @@ M.config = function()
 		},
 		formatters = {
 			astyle = {
-				args = { "--project=" .. vim.fn.getcwd() .. "/.astylerc" },
+				args = { "--project=" .. util.get_format_config(".astylerc") },
 			},
 			uncrustify = {
 				args = {
 					"-c",
-					uncrustify_file,
+					util.get_format_config("uncrustify.conf"),
 					"--replace",
 					"$FILENAME",
 					"--no-backup",
 				},
 				stdin = false,
+			},
+			prettier = {
+				args = {
+					"--stdin-filepath",
+					"$FILENAME",
+					"--config",
+					util.get_format_config("prettier.yml"),
+				},
 			},
 		},
 	})

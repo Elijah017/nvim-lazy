@@ -37,4 +37,16 @@ M.file_exists = function(path)
 	return os.rename(path, path) and true or false
 end
 
+--- Retrieves the specified config from either the project root, or the default
+--- config from the conform data directory
+---@param conf_name string
+---@return string
+M.get_format_config = function(conf_name)
+	local config = vim.g.root_dir .. "/" .. conf_name
+	if not M.file_exists(config) then
+		config = vim.fn.stdpath("data") .. "/conform/" .. conf_name
+	end
+	return config
+end
+
 return M
