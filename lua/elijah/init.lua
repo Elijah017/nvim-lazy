@@ -9,8 +9,9 @@ local M = {}
 local modules = {
 	"plugins.colour",
 	"plugins.nav",
-	"plugins.mason",
+	"plugins.lang",
 	"plugins.extra",
+	"plugins.syntax",
 }
 
 -- Set colourscheme and all related aspects

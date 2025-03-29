@@ -1,17 +1,7 @@
 local M = { "nvim-treesitter/nvim-treesitter", lazy = true }
 
-local autotag = {
-	"windwp/nvim-ts-autotag",
-	lazy = true,
-	config = function()
-		require("nvim-ts-autotag").setup()
-	end,
-}
-
 M.event = { "BufNewFile", "BufReadPost" }
 M.cmd = { "TSUpdate" }
-
-M.dependencies = { autotag }
 
 M.config = function()
 	require("nvim-treesitter.configs").setup({
@@ -35,8 +25,6 @@ M.config = function()
 		indent = { enable = false },
 
 		incremental_selection = { enable = true },
-
-		autotag = { enable = false },
 	})
 end
 

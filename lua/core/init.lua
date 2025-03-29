@@ -1,5 +1,6 @@
 require("core.options")
 require("core.set")
+require("core.filetype")
 require("core.autocmds")
 
 -- Find and set the root directory of a project

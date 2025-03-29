@@ -1,4 +1,4 @@
-local namespace = "plugins.mason."
+local namespace = "plugins.lang."
 
 ---@type LazySpec
 local M = { "williamboman/mason.nvim" }
@@ -90,6 +90,11 @@ M.config = function()
 				lspconfig.bashls.setup({
 					cmd = { "bash-language-server", "start" },
 					filetypes = { "sh", "bash" },
+				})
+			end,
+			html = function()
+				lspconfig.html.setup({
+					filetypes = { "html", "gotmpl" },
 				})
 			end,
 		},

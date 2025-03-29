@@ -1,6 +1,6 @@
 local util = require("core.util")
 
-local namespace = "plugins.mason."
+local namespace = "plugins.lang."
 local plugins = {
 	"mason",
 	"dap",

@@ -5,7 +5,6 @@ local namespace = "plugins.colour."
 local plugins = {
 	"tokyonight",
 	"lualine",
-	"treesitter",
 	"rainbow-csv",
 }
 
