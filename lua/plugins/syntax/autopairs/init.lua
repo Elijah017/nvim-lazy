@@ -34,19 +34,17 @@ M[#M + 1] = {
 M[#M + 1] = {
 	"windwp/nvim-ts-autotag",
 	event = "InsertEnter",
-	config = function()
-		require("nvim-ts-autotag").setup({
-			opts = {
-				enable_close = true,
-				enable_rename = true,
-				enable_close_on_slash = true,
-			},
-			aliases = {
-				["gotmpl"] = "html",
-			},
-			per_filetype = {},
-		})
-	end,
+	opts = {
+		opts = {
+			enable_close = true,
+			enable_rename = true,
+			enable_close_on_slash = true,
+		},
+		aliases = {
+			["gotmpl"] = "html",
+		},
+		per_filetype = {},
+	},
 }
 
 return M

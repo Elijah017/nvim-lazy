@@ -69,9 +69,6 @@ local config = {
 	extensions = {},
 }
 
-M.config = function()
-	local lualine = require("lualine")
-	lualine.setup(config)
-end
+M.opts = config
 
 return M

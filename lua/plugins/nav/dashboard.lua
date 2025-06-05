@@ -12,55 +12,53 @@ M.dependencies = {
 	},
 }
 
-M.config = function()
-	require("dashboard").setup({
-		theme = "hyper",
-		shortcut_type = "number",
-		config = {
-			-- header = require('ascii').get_random_global(),
-			header = require("ascii").art.text.neovim.delta_corps_priest1,
-			-- header = require('ascii').art.text.neovim.bloody,
-			week_header = { enable = false },
-			shortcut = {
-				{
-					desc = "󰊳 Update",
-					group = "@property",
-					action = "Lazy update",
-					key = "u",
-				},
-				{
-					icon = " ",
-					icon_hl = "@variable",
-					desc = "Files",
-					group = "Label",
-					action = "Telescope find_files",
-					key = "s",
-				},
-				{
-					icon = "󰿅 ",
-					desc = "Quit",
-					group = "Number",
-					action = "quit",
-					key = "q",
-				},
+M.opts = {
+	theme = "hyper",
+	shortcut_type = "number",
+	config = {
+		-- header = require('ascii').get_random_global(),
+		header = require("ascii").art.text.neovim.delta_corps_priest1,
+		-- header = require('ascii').art.text.neovim.bloody,
+		week_header = { enable = false },
+		shortcut = {
+			{
+				desc = "󰊳 Update",
+				group = "@property",
+				action = "Lazy update",
+				key = "u",
 			},
-			packages = { enable = true },
-			project = {
-				enable = false,
-				limit = 4,
-				icon = "󰉖 ",
-				label = "Directories",
-				action = "Telescope find_files cwd=",
+			{
+				icon = " ",
+				icon_hl = "@variable",
+				desc = "Files",
+				group = "Label",
+				action = "Telescope find_files",
+				key = "s",
 			},
-			mru = {
-				limit = 8,
-				icon = " ",
-				label = "Recent Files",
-				cwd_only = false,
+			{
+				icon = "󰿅 ",
+				desc = "Quit",
+				group = "Number",
+				action = "quit",
+				key = "q",
 			},
-			footer = {},
 		},
-	})
-end
+		packages = { enable = true },
+		project = {
+			enable = false,
+			limit = 4,
+			icon = "󰉖 ",
+			label = "Directories",
+			action = "Telescope find_files cwd=",
+		},
+		mru = {
+			limit = 8,
+			icon = " ",
+			label = "Recent Files",
+			cwd_only = false,
+		},
+		footer = {},
+	},
+}
 
 return M

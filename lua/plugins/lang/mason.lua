@@ -1,61 +1,51 @@
 local namespace = "plugins.lang."
 
----@type LazySpec
-local M = { "williamboman/mason.nvim" }
+local M = { "mason-org/mason.nvim" }
 
 M.event = { "BufNewfile", "BufReadPre" }
 M.keys = { { "<leader>ma", "<cmd>Mason<cr>", { desc = "Mason", mode = "n" } } }
 
-local nvim_opts = function(opts)
-	local runtime_path = vim.split(package.path, ";")
-	table.insert(runtime_path, "lua/?.lua")
-	table.insert(runtime_path, "lua/?/init.lua")
-
-	local config = {
-		settings = {
-			Lua = {
-				-- Disable telemetry
-				telemetry = { enable = false },
-				runtime = {
-					-- Tell the language server which version of Lua you're using
-					-- (most likely LuaJIT in the case of Neovim)
-					version = "LuaJIT",
-					path = runtime_path,
-				},
-				diagnostics = {
-					-- Get the language server to recognize the `vim` global
-					globals = { "vim" },
-				},
-				workspace = {
-					checkThirdParty = false,
-					library = {
-						-- Make the server aware of Neovim runtime files
-						vim.fn.expand("$VIMRUNTIME/lua"),
-						vim.fn.stdpath("config") .. "/lua",
-					},
-				},
-			},
-		},
-	}
-
-	return vim.tbl_deep_extend("force", config, opts or {})
-end
-
 M.lazy = true
 M.dependencies = {
-	{ "williamboman/mason-lspconfig.nvim", lazy = true },
+	{ "mason-org/mason-lspconfig.nvim", lazy = true },
 	{ "neovim/nvim-lspconfig", lazy = true },
 	{ "L3MON4D3/LuaSnip", lazy = true },
 	require(namespace .. "cmp"),
 }
 
 M.config = function()
-	local lspconfig = require("lspconfig")
 	local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 	vim.keymap.set("n", "gl", "<cmd>lua vim.diagnostic.open_float()<cr>")
-	vim.keymap.set("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<cr>")
-	vim.keymap.set("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<cr>")
+
+	vim.lsp.config("*", {
+		capabilities = lsp_capabilities,
+	})
+
+	vim.lsp.config("lua_ls", {
+		settings = {
+			Lua = {
+				runtime = {
+					version = "LuaJIT",
+				},
+				diagnostics = {
+					globals = {
+						"vim",
+						"require",
+					},
+				},
+			},
+		},
+	})
+
+	vim.lsp.config("bashls", {
+		cmd = { "bash-language-server", "start" },
+		filetypes = { "sh", "bash", "zsh" },
+	})
+
+	vim.lsp.config("html", {
+		filetypes = { "html", "gotmpl" },
+	})
 
 	require("mason").setup({
 		ui = {
@@ -67,37 +57,37 @@ M.config = function()
 		},
 	})
 	require("mason-lspconfig").setup({
+		-- A list of servers to automatically install if they're not already
+		-- installed. Example: { "rust_analyzer@nightly", "lua_ls" }
+		---@type string[]
 		ensure_installed = {
 			"lua_ls",
 			"bashls",
-			"pylsp",
-			"clangd",
 			"gopls",
-			"asm_lsp",
+			"clangd",
 			"ts_ls",
+			"html",
 		},
-		automatic_installation = true,
-		handlers = {
-			function(server) -- a default method to setup servers
-				lspconfig[server].setup({
-					capabilities = lsp_capabilities,
-				})
-			end,
-			lua_ls = function()
-				lspconfig.lua_ls.setup(nvim_opts())
-			end,
-			bashls = function()
-				lspconfig.bashls.setup({
-					cmd = { "bash-language-server", "start" },
-					filetypes = { "sh", "bash" },
-				})
-			end,
-			html = function()
-				lspconfig.html.setup({
-					filetypes = { "html", "gotmpl" },
-				})
-			end,
-		},
+
+		-- Whether installed servers should automatically be enabled via
+		-- `:h vim.lsp.enable()`.
+		--
+		-- To exclude certain servers from being automatically enabled:
+		-- ```lua
+		--   automatic_enable = {
+		--     exclude = { "rust_analyzer", "ts_ls" }
+		--   }
+		-- ```
+		--
+		-- To only enable certain servers to be automatically enabled:
+		-- ```lua
+		--   automatic_enable = {
+		--     "lua_ls",
+		--     "vimls"
+		--   }
+		-- ```
+		---@type boolean | string[] | { exclude: string[] }
+		automatic_enable = true,
 	})
 end
 

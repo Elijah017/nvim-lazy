@@ -5,6 +5,7 @@ local plugins = {
 	"telescope",
 	"neotree",
 	-- "dashboard",
+	"harpoon",
 }
 
 return util.get_deps(namespace, plugins)

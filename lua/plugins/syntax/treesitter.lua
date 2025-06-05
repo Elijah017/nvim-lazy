@@ -26,6 +26,12 @@ M.config = function()
 
 		incremental_selection = { enable = true },
 	})
+
+	vim.filetype.add({
+		extension = { zsh = "zsh" },
+		pattern = { [".zshrc"] = "zsh" },
+	})
+	vim.treesitter.language.register("bash", { "zsh", "bash", "sh" })
 end
 
 return M
