@@ -73,3 +73,6 @@ vim.keymap.set("n", "<leader>Y", [[ "+Y ]], { desc = "yank line to clipboard" })
 vim.keymap.set("n", "==", vim.lsp.buf.format)
 
 vim.keymap.set("n", "<space>", "<Nop>", { noremap = true })
+
+vim.g.loaded_perl_provider = 0
+vim.g.loaded_ruby_provider = 0

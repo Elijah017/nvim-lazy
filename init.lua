@@ -16,6 +16,7 @@ local lazy_config = {
 		colorscheme = { "tokyonight" },
 	},
 	-- change_detection = { notify = false, },
+	rocks = { hererocks = true },
 }
 
 require("lazy").setup("elijah", lazy_config)

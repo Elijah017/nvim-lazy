@@ -3,6 +3,7 @@ local util = require("core.util")
 local namespace = "plugins.lang."
 local plugins = {
 	"mason",
+	"mason-lspconfig",
 	"dap",
 	"conform",
 }
